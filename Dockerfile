@@ -1,5 +1,4 @@
 FROM ubuntu:24.04
-#FROM php:8.4
 
 RUN apt update
 RUN apt install -y software-properties-common ca-certificates lsb-release
@@ -18,4 +17,4 @@ WORKDIR /usr/share/nginx/www/z_app
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
