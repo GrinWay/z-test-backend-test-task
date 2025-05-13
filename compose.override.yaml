@@ -1,6 +1,12 @@
 services:
+    ###> APP ###
+    z_app:
+        ports:
+        - '80:80'
+    ###< APP ###
+
     ###> doctrine/doctrine-bundle ###
     database:
         ports:
-        - '3306:3306'
+        - '3306'
     ###< doctrine/doctrine-bundle ###
