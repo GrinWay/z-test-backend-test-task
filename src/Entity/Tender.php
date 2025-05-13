@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TenderRepository::class)]
 #[ApiResource(
-    options: [
+    operations: [
         new Get(),
         new GetCollection(),
         new Post(),
