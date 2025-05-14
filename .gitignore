@@ -10,6 +10,8 @@ private.*
 # composer dump-env prod
 /.env.local.php
 
+supervisord.log
+supervisord.pid
 /coverage
 /mercure/windows
 /drivers/
