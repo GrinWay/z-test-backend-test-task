@@ -12,7 +12,8 @@ services:
         volumes:
         - 'mysql:/var/lib/mysql'
         environment:
-            MYSQL_ROOT_PASSWORD: '$MYSQL_ROOT_PASSWORD'
+#            MYSQL_ROOT_PASSWORD: '$MYSQL_ROOT_PASSWORD' # it's better to use it in production code
+            MYSQL_ROOT_PASSWORD: 'root'
     ###< doctrine/doctrine-bundle ###
 
     ###> APP ###

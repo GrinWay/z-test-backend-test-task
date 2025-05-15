@@ -1,5 +1,6 @@
 composer install
-php bin/console doctrine:database:create
-php bin/console doctrine:migrations:migrate
-php bin/console cache:clear
 docker compose down && docker compose up -d
+docker exec -it z_app bash php bin/console doctrine:database:create
+docker exec -it z_app bash php bin/console doctrine:migrations:migrate
+docker exec -it z_app bash php bin/console cache:clear
+docker exec -it z_app bash php bin/console assets:install
