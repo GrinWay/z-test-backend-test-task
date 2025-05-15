@@ -38,10 +38,10 @@ via [phpmyadmin](http://localhost:8080)
 
 Access the http://localhost/api?access_token=123
 
-Then you can import fake data from `test_task_data.csv` into `Tender` table using the following command:
+Then you can import data from the `test_task_data.csv` into the `Tender` table using the following command:
 
 ```console
-php bin/console app:mysql:import_csv tender
+docker exec -it z_app php bin/console app:mysql:import_csv tender
 ```
 
 There are three `Tender` operations accessible:
