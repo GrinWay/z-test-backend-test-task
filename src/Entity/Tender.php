@@ -30,7 +30,6 @@ use Symfony\Component\Serializer\Attribute\Groups;
     denormalizationContext: [
         'groups' => 'tender:write',
     ],
-//    security: 'is_granted("IS_AUTHENTICATED")',
 )]
 #[ApiFilter(
     SearchFilter::class,
