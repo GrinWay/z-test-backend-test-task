@@ -13,8 +13,7 @@ class ApiExceptionJsonResponse
     public function __invoke(ExceptionEvent $event)
     {
         $request = $event->getRequest();
-        $isApiRoute = !\str_starts_with($request->getUri(), '/api');
-        \dump($isApiRoute);
+        $isApiRoute = !\str_starts_with($request->getPathInfo(), '/api');
         if ($isApiRoute) {
             return;
         }
@@ -26,7 +25,6 @@ class ApiExceptionJsonResponse
         ]);
         if ($exception instanceof HttpException) {
             $response->setStatusCode($exception->getStatusCode());
-            $response->headers->replace($exception->getHeaders());
         }
 
         $event->setResponse($response);

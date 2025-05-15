@@ -5,7 +5,7 @@ stop:
 	cls && symfony server:stop && docker compose stop
 
 dump:
-	cls && symfony console server:dump
+	clear && symfony console server:dump
 
 
 cc:
