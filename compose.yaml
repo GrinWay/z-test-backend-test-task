@@ -26,8 +26,8 @@ services:
         - './nginx.conf:/etc/nginx/sites-enabled/default:ro'
         - './php.ini:/etc/php/8.4/cli/php.ini:ro'
         - './fpm-www.conf:/etc/php/8.4/fpm/pool.d/www.conf:ro'
-        - './php8.4-fpm.service:/etc/systemd/system/php8.4-fpm.service:ro'
         - './supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro'
+        #- './php8.4-fpm.service:/etc/systemd/system/php8.4-fpm.service:ro'
         depends_on:
         - 'database'
     ###< APP ###

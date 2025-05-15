@@ -18,3 +18,4 @@ WORKDIR /usr/share/nginx/www/z_app
 EXPOSE 80
 
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+#ENTRYPOINT ["sh", "-c", "php-fpm8.4 -F && nginx -g 'daemon off;'"]
