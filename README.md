@@ -1,26 +1,31 @@
-### Description
+### What it for?
 
-[task](https://github.com/bigfootdary/z-test-backend)
+[Task](https://github.com/bigfootdary/z-test-backend)
+
+Overall it's a docker based RESTful API application for `Tender`
+
+Let's call it a microservice 😉
 
 ### Installation
 
-Make suer you have installed the following programms on your PC:
+Make sure you have installed the following programs on your PC:
+
 - [php](https://www.php.net/downloads.php)
 - [composer](https://getcomposer.org/download/)
 - [docker](https://www.docker.com/products/docker-desktop/)
-- [git_bash](https://git-scm.com/downloads) `Can come in handy if you use Windows`
+- [git_bash](https://git-scm.com/downloads) `If you use Windows`
 
-Open git_bash terminal on windows or native linux one and execute:
+Open `git_bash` on windows or a native linux terminal and execute:
 
 ```console
 git clone https://github.com/GrinWay/z-test-backend-test-task && cd z-test-backend-test-task && ./init.sh
 ```
 
-Everything will be installed automatically ❤️
+❤️ Everything will be installed automatically ❤️
 
 ### Usage
 
-First you need to create your access token to access the http://localhost/api
+First you need to create your access token to access the [application](http://localhost/api)
 
 For this open [phpmyadmin](http://localhost:8080) and enter
 
@@ -28,18 +33,37 @@ For this open [phpmyadmin](http://localhost:8080) and enter
 |-------------|--------|----------|
 | `z_task_db` | `root` | `root`   |
 
-Create a new user and then a new api_token (connected with user, token equals 123 for instance) via [phpmyadmin](http://localhost:8080)
+Create a new user and then a new api_token (connected with user, token equals 123 for instance)
+via [phpmyadmin](http://localhost:8080)
 
 Access the http://localhost/api?access_token=123
 
 Then you can import fake data from `test_task_data.csv` into `Tender` table using the following command:
+
 ```console
 php bin/console app:mysql:import_csv tender
 ```
 
 There are three `Tender` operations accessible:
-- Get Tender - To get a certain tender
-- GetCollection - To get a collection of tenders
-- Post - To create a new Tender
 
-Enjoy 😘
+| OPERATION       | DESCRIPTION                      |
+|-----------------|----------------------------------|
+| `Get`           | To get a certain `Tender`        |
+| `Post`          | To create a new `Tender`         |
+| `GetCollection` | To get a collection of `Tender`s |
+
+Done 👌 Enjoy 😘
+
+### Advanced
+
+You can enter the application docker container (by executing in the `z-test-backend-test-task` directory):
+
+```console
+docker exec -it z_app bash
+```
+
+Or even to stop the application (by executing in the `z-test-backend-test-task` directory):
+
+```console
+docker compose down
+```
