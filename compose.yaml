@@ -1,6 +1,6 @@
 networks:
     default:
-        name: 'z_app_network'
+        name: 'app'
         driver: 'bridge'
 
 services:
@@ -9,6 +9,8 @@ services:
         image: 'mysql:8.0-debian'
         restart: 'unless-stopped'
         container_name: 'z_task_db'
+        volumes:
+        - 'mysql:/var/lib/mysql'
         environment:
             MYSQL_ROOT_PASSWORD: '$MYSQL_ROOT_PASSWORD'
     ###< doctrine/doctrine-bundle ###
@@ -28,3 +30,6 @@ services:
         depends_on:
         - 'database'
     ###< APP ###
+
+volumes:
+    mysql:

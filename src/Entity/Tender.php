@@ -48,35 +48,35 @@ class Tender
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['tender:read'])]
+    #[Groups(['tender:read', 'Tender'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
-    #[Groups(['tender:read'])]
+    #[Groups(['tender:read', 'Tender'])]
     protected ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
-    #[Groups(['tender:read'])]
+    #[Groups(['tender:read', 'Tender'])]
     protected ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['tender:read', 'tender:write'])]
+    #[Groups(['tender:read', 'tender:write', 'Tender'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['tender:read', 'tender:write'])]
+    #[Groups(['tender:read', 'tender:write', 'Tender'])]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['tender:read', 'tender:write'])]
+    #[Groups(['tender:read', 'tender:write', 'Tender'])]
     private ?string $number = null;
 
     #[ORM\Column(enumType: TenderStateEnum::class)]
-    #[Groups(['tender:read'])]
+    #[Groups(['tender:read', 'Tender'])]
     private TenderStateEnum|null $state = null;
 
     #[ORM\Column]
-    #[Groups(['tender:read', 'tender:write'])]
+    #[Groups(['tender:read', 'tender:write', 'Tender'])]
     private bool $isPublished = false;
 
     public function getId(): ?int
@@ -140,6 +140,13 @@ class Tender
     public function setIsPublished(bool $isPublished): static
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function setId(?int $id): static
+    {
+        $this->id = $id;
 
         return $this;
     }
