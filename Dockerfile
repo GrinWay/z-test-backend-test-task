@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 RUN apt update
 RUN apt install -y software-properties-common ca-certificates lsb-release
 RUN apt install -y python3-dev build-essential
-RUN apt install -y bash vim supervisor
+RUN apt install -y bash vim supervisor npm
 RUN add-apt-repository ppa:ondrej/php
 RUN apt install -y nginx
 RUN apt install -y php8.4 php8.4-fpm \
